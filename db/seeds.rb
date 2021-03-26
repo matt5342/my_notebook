@@ -8,28 +8,34 @@
 require 'faker'
 require 'pry'
 
-Notebook.destroy_all
-Chapter.destroy_all
 Page.destroy_all
+Chapter.destroy_all
+Notebook.destroy_all
 
 
 User.all.each do |user|
-    # notebook = Notebook.new()
-    notebook = Notebook.create(title: Faker::Book.title)
+    notebook = Notebook.new
     notebook.user = user
+    notebook.title = Faker::Book.title
+    notebook.save
     10.times do
-        chapters = Chapter.create(title: Faker::Marketing.buzzwords)
-        chapters.notebook = notebook
+        chapter = Chapter.new
+        chapter.notebook = notebook
+        chapter.title = Faker::Marketing.buzzwords
+        chapter.save
         counter = 1
         20.times do
-            page = Page.create(number: counter, content: Faker::Lorem.paragraph(sentence_count: 4))
-            page.chapter = chapters
-            counter = counter + 1
+            page = Page.new
+            page.chapter = chapter
+            page.number = counter, 
+            page.content = Faker::Lorem.paragraph(sentence_count: 4)
+            page.save
+            counter += 1
         end
     end
 end
+# binding.pry
 
-# Faker::Lorem.paragraph(sentence_count: 2) #=> "Ducimus mollitia deserunt. Dicta et corporis."
 
 
 
