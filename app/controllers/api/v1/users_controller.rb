@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
     end
     
     def create
+      # byebug
       @user = User.create(user_params)
       if @user.valid?
         @token = encode_token(user_id: @user.id)
@@ -17,6 +18,13 @@ class Api::V1::UsersController < ApplicationController
     def index
         @users = User.all
         render json: @users
+    end
+    def token_authenticate
+      # byebug
+      token = request.headers["Authorization"]
+      decoded_token = decode(token)
+      user = User.find(decoded_token[0]["user_id"])
+      render json: user
     end
   
     private
