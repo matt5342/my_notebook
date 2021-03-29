@@ -27,8 +27,8 @@ User.all.each do |user|
         20.times do
             page = Page.new
             page.chapter = chapter
-            page.number = counter, 
-            page.content = Faker::Lorem.paragraph(sentence_count: 4)
+            page.number = counter
+            page.content = Faker::Lorem.paragraph(sentence_count: 10)
             page.save
             counter += 1
         end
