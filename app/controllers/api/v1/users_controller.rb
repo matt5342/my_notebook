@@ -20,9 +20,10 @@ class Api::V1::UsersController < ApplicationController
         render json: @users
     end
     def token_authenticate
-      # byebug
       token = request.headers["Authorization"]
       decoded_token = decode(token)
+      # byebug
+
       user = User.find(decoded_token[0]["user_id"])
       render json: user
     end
