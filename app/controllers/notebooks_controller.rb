@@ -14,6 +14,7 @@ class NotebooksController < ApplicationController
         @notebook = Notebook.new(notebook_params)
         @notebook.user = current_user
         @notebook.save
+
     end
 
     private

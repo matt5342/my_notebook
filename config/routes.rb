@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/chapters/:id/pages', to: 'chapters#this_chapter'
   get '/users/:id/notebook', to: 'notebooks#this_notebook'
   post '/users/:id/notebook', to: 'notebooks#create'
+  post '/users/:id/chapter', to: 'chapters#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
