@@ -37,7 +37,11 @@ class ChaptersController < ApplicationController
     def this_chapter
         # byebug
         chapter = Chapter.all.find(params["id"])
-        render json: chapter.pages
+        if chapter.pages.length == 0
+            render json: {error: "No pages yet"}
+        else
+            render json: chapter.pages
+        end
     end
 
 
