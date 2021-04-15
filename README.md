@@ -1,24 +1,9 @@
-# README
+My Notebook:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A React application to create your personal notebook.
+This application was build just after learning the fundamentals of the React framework, and uses Rails as an API on the backend.
 
-Things you may want to cover:
+A user can name their notebook, add chapters, and pages within those chapters.
 
-* Ruby version
+Uses client side JSON web tokens to keep user passowords secure.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
